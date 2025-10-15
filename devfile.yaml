@@ -6,14 +6,8 @@ metadata:
 attributes:
   controller.devfile.io/scc: container-build
   pod-overrides:
-    spec:
-      containers:
-        # O nome aqui DEVE ser o mesmo do seu componente
-        - name: tooling-container
-          securityContext:
-            # Nós sobrescrevemos para desativar a regra
-            # que estava bloqueando a alocação de UID
-            runAsNonRoot: false
+    securityContext:
+      runAsNonRoot: false
 components:
   - name: tooling-container
     container:
