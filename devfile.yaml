@@ -4,7 +4,7 @@ metadata:
   name: ansible-dev-environment
 
 attributes:
-  controller.devfile.io/scc: podman-in-podman
+  controller.devfile.io/scc: container-build
   
 components:
   - name: tooling-container
