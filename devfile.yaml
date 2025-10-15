@@ -7,11 +7,11 @@ attributes:
   controller.devfile.io/scc: container-build
 components:
   - name: tooling-container
+    attributes:
+      container-overrides:
+        securityContext:
+          runAsNonRoot: false
     container:
-      attributes:
-        container-overrides:
-          securityContext:
-            runAsNonRoot: false
       image: quay.io/mycloudlab/ansible-devspaces:latest
       memoryRequest: 256M
       memoryLimit: 6Gi
