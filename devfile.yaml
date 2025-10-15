@@ -21,7 +21,16 @@ components:
         - name: 'KUBEDOCK_ENABLED'
           value: "true"
 
-
+attributes:
+  pod-overrides:
+    spec:
+      containers:
+        # O nome aqui DEVE ser o mesmo do seu componente
+        - name: tooling-container
+          securityContext:
+            # Nós sobrescrevemos para desativar a regra
+            # que estava bloqueando a alocação de UID
+            runAsNonRoot: false
 commands:
 
   - id: ansible-navigator
