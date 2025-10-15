@@ -1,11 +1,16 @@
-apiVersion: backstage.io/v1alpha1
+apiVersion: backstage.io/v1beta1
 kind: Component
 metadata:
-  name: b_com_c_teste
+  name: meu-servico-exemplo
+  description: Serviço de exemplo integrado ao GitHub e SonarQube
+  tags:
+    - nodejs
+    - backend
   annotations:
     sonarqube.org/project-key: sonar/teste-api
     github.com/project-slug: euprogramador/b_com_c_teste
 spec:
-  type: other
-  lifecycle: unknown
-  owner: user:default/euprogramador
+  type: service
+  owner: group:default/dev-team
+  lifecycle: production
+  system: sistema-principal
