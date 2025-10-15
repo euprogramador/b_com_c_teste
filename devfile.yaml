@@ -2,6 +2,10 @@
 schemaVersion: 2.2.2
 metadata:
   name: ansible-dev-environment
+
+attributes:
+  controller.devfile.io/scc: container-build
+  
 components:
   - name: tooling-container
     container:
@@ -18,24 +22,6 @@ components:
           value: "true"
 
 
-# --- INÍCIO DA SEÇÃO DE PATCH ---
-attributes:
-  # 'pod-overrides' permite aplicar patches ao PodSpec gerado
-  pod-overrides:
-      spec:
-        securityContext:
-          runAsUser: 0
-          privileged: true
-          capabilities:
-            drop:
-              - ALL
-            add:
-              - SYS_CHROOT
-              - SETFCAP
-              - SETUID
-              - SETGID
-          seLinuxOptions:
-            type: spc_t
 commands:
 
   - id: ansible-navigator
