@@ -8,4 +8,4 @@ metadata:
 spec:
   type: other
   lifecycle: unknown
-  owner: user/euprogramador
+  owner: user:default/euprogramador
