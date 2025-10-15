@@ -5,13 +5,13 @@ metadata:
 
 attributes:
   controller.devfile.io/scc: container-build
-  pod-overrides:
-    spec: 
-      securityContext:
-        runAsNonRoot: false
 components:
   - name: tooling-container
     container:
+      attributes:
+        container-overrides:
+          securityContext:
+            runAsNonRoot: false
       image: quay.io/mycloudlab/ansible-devspaces:latest
       memoryRequest: 256M
       memoryLimit: 6Gi
