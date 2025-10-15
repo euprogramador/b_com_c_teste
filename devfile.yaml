@@ -16,32 +16,30 @@ components:
           value: '~/.ansible/collections:/usr/share/ansible/collections:/projects/automation/collections'
         - name: 'KUBEDOCK_ENABLED'
           value: "true"
-# Patch do Pod da workspace
-  - name: pod-patch
-    kubernetes:
-      inlined: |
-        apiVersion: v1
-        kind: Pod
-        metadata:
-          # este nome é especial: o operador mescla no Pod da workspace
-          name: devworkspace-pod
-          labels:
-            # marca obrigatória para o merge
-            controller.devfile.io/merge-contribution: "true"
-        spec:
-          securityContext:
-            runAsUser: 0
-            privileged: true
-            capabilities:
-              drop:
-                - ALL
-              add:
-                - SYS_CHROOT
-                - SETFCAP
-                - SETUID
-                - SETGID
-            seLinuxOptions:
-              type: spc_t
+
+
+# --- INÍCIO DA SEÇÃO DE PATCH ---
+attributes:
+  # 'pod-overrides' permite aplicar patches ao PodSpec gerado
+  pod-overrides:
+    # 'patch' contém o trecho de YAML que será mesclado
+    patch: |
+      spec:
+        template:
+          spec:
+            securityContext:
+              runAsUser: 0
+              privileged: true
+              capabilities:
+                drop:
+                  - ALL
+                add:
+                  - SYS_CHROOT
+                  - SETFCAP
+                  - SETUID
+                  - SETGID
+              seLinuxOptions:
+                type: spc_t
 commands:
 
   - id: ansible-navigator
