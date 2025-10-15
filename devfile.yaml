@@ -22,24 +22,20 @@ components:
 attributes:
   # 'pod-overrides' permite aplicar patches ao PodSpec gerado
   pod-overrides:
-    # 'patch' contém o trecho de YAML que será mesclado
-    patch: |
       spec:
-        template:
-          spec:
-            securityContext:
-              runAsUser: 0
-              privileged: true
-              capabilities:
-                drop:
-                  - ALL
-                add:
-                  - SYS_CHROOT
-                  - SETFCAP
-                  - SETUID
-                  - SETGID
-              seLinuxOptions:
-                type: spc_t
+        securityContext:
+          runAsUser: 0
+          privileged: true
+          capabilities:
+            drop:
+              - ALL
+            add:
+              - SYS_CHROOT
+              - SETFCAP
+              - SETUID
+              - SETGID
+          seLinuxOptions:
+            type: spc_t
 commands:
 
   - id: ansible-navigator
