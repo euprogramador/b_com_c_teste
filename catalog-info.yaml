@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: meu-servico
+  description: Serviço de exemplo com análise SonarQube
+  annotations:
+    backstage.io/source-location: url:https://github.com/seu-org/meu-servico
+    sonarqube.org/project-key: sonar/teste-api
+spec:
+  type: service
+  lifecycle: production
+  owner: equipe-dev
