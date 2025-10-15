@@ -6,8 +6,9 @@ metadata:
 attributes:
   controller.devfile.io/scc: container-build
   pod-overrides:
-    securityContext:
-      runAsNonRoot: false
+    spec: 
+      securityContext:
+        runAsNonRoot: false
 components:
   - name: tooling-container
     container:
