@@ -6,6 +6,7 @@ metadata:
   annotations:
     backstage.io/source-location: url:https://github.com/seu-org/meu-servico
     sonarqube.org/project-key: sonar/teste-api
+    github.com/project-slug: euprogramador/b_com_c_teste
 spec:
   type: service
   lifecycle: production
