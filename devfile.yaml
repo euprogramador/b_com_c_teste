@@ -6,10 +6,10 @@ components:
   - name: tooling-container
     container:
       image: quay.io/mycloudlab/ansible-devspaces:latest
-      memoryRequest: 256M
-      memoryLimit: 6Gi
-      cpuRequest: 250m
-      cpuLimit: 2000m
+      #memoryRequest: 256M
+      #memoryLimit: 6Gi
+      #cpuRequest: 250m
+      #cpuLimit: 2000m
       args: ['tail', '-f', '/dev/null']
       env:
         - name: 'ANSIBLE_COLLECTIONS_PATH'
