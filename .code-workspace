@@ -1,0 +1,12 @@
+{
+	"settings": {
+		"ansible.lightspeed.suggestions.enabled": true,
+		"ansible.lightspeed.enabled": true
+	},
+	"folders": [
+		{
+			"name": "automation",
+			"path": "/projects/automation"
+		}
+	]
+}

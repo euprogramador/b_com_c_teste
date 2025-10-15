@@ -1,0 +1,10 @@
+---
+exclude_paths:
+  - devfile.yml
+  - provision.yml
+  - unprovision.yml
+  - collections/ansible_collections/nuvem_caixa/dns_server/extensions
+
+warn_list:
+  - galaxy[no-changelog]  # TODO: Implement changelog.
+  - schema[meta-runtime]  # TODO: Implement meta/runtime.yml
