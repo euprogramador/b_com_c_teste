@@ -43,7 +43,7 @@ components:
   attributes:
     container-overrides:
       securityContext:
-        #privileged: true
+        privileged: true
         capabilities:
           add:
             - SETFCAP
@@ -52,7 +52,7 @@ components:
         seLinuxOptions:
           type: spc_t
   container:
-    image: registry.redhat.io/rhel9/podman:latest
+    image: quay.io/mycloudlab/ansible-devspaces:latest
     args: ['tail', '-f', '/dev/null']
     memoryLimit: 1Gi
     cpuLimit: 1000m
