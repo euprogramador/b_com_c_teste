@@ -18,6 +18,7 @@ components:
       cpuRequest: 250m
       cpuLimit: 2000m
       args: ['tail', '-f', '/dev/null']
+      mountSources: true
       env:
         - name: 'ANSIBLE_COLLECTIONS_PATH'
           value: '~/.ansible/collections:/usr/share/ansible/collections:/projects/automation/collections'
