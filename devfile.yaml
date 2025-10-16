@@ -43,6 +43,7 @@ components:
   attributes:
     container-overrides:
       securityContext:
+        privileged: true
         capabilities:
           add:
             - SETFCAP
