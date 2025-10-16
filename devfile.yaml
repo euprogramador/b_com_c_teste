@@ -62,8 +62,8 @@
 schemaVersion: 2.1.0
 metadata:
   name: build-test
-attributes:
-  controller.devfile.io/scc: container-build
+#attributes:
+  #controller.devfile.io/scc: container-build
 parent:
   kubernetes:
     name: ansible-ide
