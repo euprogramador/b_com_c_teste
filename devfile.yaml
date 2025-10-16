@@ -5,14 +5,6 @@ metadata:
 
 attributes:
   controller.devfile.io/scc: container-build
-  controller.devfile.io/pod-overrides: |
-  {
-    "spec": {
-      "volumes": [
-        { "name": "dev-fuse", "hostPath": { "path": "/dev/fuse", "type": "CharDevice" } }
-      ]
-    }
-  }
 components:
   - name: tooling-container
     attributes:
