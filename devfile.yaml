@@ -52,7 +52,7 @@ components:
         seLinuxOptions:
           type: spc_t
   container:
-    image: quay.io/mycloudlab/ansible-devspaces:latest
+    image: registry.redhat.io/rhel9/podman:latest
     args: ['tail', '-f', '/dev/null']
     memoryLimit: 1Gi
     cpuLimit: 1000m
