@@ -65,4 +65,4 @@ metadata:
 parent:
   kubernetes:
     name: ansible-ide
-    namespace: openshift-operators
+    namespace: admin-devspaces
