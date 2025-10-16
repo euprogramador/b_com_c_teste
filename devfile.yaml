@@ -5,6 +5,14 @@ metadata:
 
 attributes:
   controller.devfile.io/scc: container-build
+  controller.devfile.io/pod-overrides: |
+  {
+    "spec": {
+      "volumes": [
+        { "name": "dev-fuse", "hostPath": { "path": "/dev/fuse", "type": "CharDevice" } }
+      ]
+    }
+  }
 components:
   - name: tooling-container
     attributes:
@@ -19,24 +27,13 @@ components:
       cpuLimit: 2000m
       args: ['tail', '-f', '/dev/null']
       mountSources: true
+      volumeMounts:
+        - name: dev-fuse
+          path: /dev/fuse
       env:
         - name: 'ANSIBLE_COLLECTIONS_PATH'
           value: '~/.ansible/collections:/usr/share/ansible/collections:/projects/automation/collections'
         - name: 'KUBEDOCK_ENABLED'
           value: "true"
 
-
-commands:
-
-  - id: ansible-navigator
-    exec:
-      label: "Ansible-Navigator: Start ansible-navigator"
-      commandLine: |
-        if [ ! -d "$HOME/.cache/ansible-navigator" ]; then
-          mkdir -p "$HOME/.cache/ansible-navigator"
-        fi
-        cp /usr/local/lib/python3.11/site-packages/ansible_navigator/data/catalog_collections.py $HOME/.cache/ansible-navigator
-        ansible-navigator --ee false
-      workingDir: ${PROJECTS_ROOT}/automation
-      component: tooling-container
 
