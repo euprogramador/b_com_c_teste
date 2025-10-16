@@ -40,10 +40,10 @@ attributes:
   controller.devfile.io/scc: container-build
 components:
 - name: devtooling-container
-  attributes:
-    container-overrides:
-      securityContext:
-        seccompProfile: { type: Unconfined }
+#  attributes:
+#    container-overrides:
+#      securityContext:
+#        seccompProfile: { type: Unconfined }
   container:
     image: quay.io/devspaces/udi-rhel8:next
     memoryLimit: 1Gi
