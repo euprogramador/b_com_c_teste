@@ -53,6 +53,6 @@ components:
           type: spc_t
   container:
     image: quay.io/mycloudlab/ansible-devspaces:latest
-    args: ['tail', '-f', '/dev/null']
+    #args: ['tail', '-f', '/dev/null']
     memoryLimit: 1Gi
     cpuLimit: 1000m
