@@ -1,47 +1,46 @@
 # cspell: disable=devspaces
-schemaVersion: 2.2.2
-metadata:
-  name: ansible-dev-environment
-
-attributes:
-  controller.devfile.io/scc: container-build
-components:
-  - name: tooling-container
-    attributes:
-      container-overrides:
-        securityContext:
-          capabilities:
-            add:
-              - SETFCAP
-              - SYS_ADMIN
-              - MKNOD
-          seLinuxOptions:
-              type: spc_t
-    container:
-      image: quay.io/mycloudlab/ansible-devspaces:latest
-      memoryRequest: 256M
-      memoryLimit: 6Gi
-      cpuRequest: 250m
-      cpuLimit: 2000m
-      args: ['tail', '-f', '/dev/null']
-
-      env:
-        - name: 'ANSIBLE_COLLECTIONS_PATH'
-          value: '~/.ansible/collections:/usr/share/ansible/collections:/projects/automation/collections'
-        - name: 'KUBEDOCK_ENABLED'
-          value: "true"
-
-
-
-
-#schemaVersion: 2.1.0
+#schemaVersion: 2.2.2
 #metadata:
-#  name: build-test
+#  name: ansible-dev-environment
 #attributes:
 #  controller.devfile.io/scc: container-build
 #components:
-#- name: devtooling-container
-#  container:
-#    image: quay.io/devspaces/udi-rhel8:next
-#    memoryLimit: 1Gi
-#    cpuLimit: 1000m
+#  - name: tooling-container
+#    attributes:
+#      container-overrides:
+#        securityContext:
+#          capabilities:
+#            add:
+#              - SETFCAP
+#              - SYS_ADMIN
+##              - MKNOD
+ #         seLinuxOptions:
+#              type: spc_t
+#    container:
+#      image: quay.io/mycloudlab/ansible-devspaces:latest
+#      memoryRequest: 256M
+#      memoryLimit: 6Gi
+#      cpuRequest: 250m
+#      cpuLimit: 2000m
+#      args: ['tail', '-f', '/dev/null']
+
+#      env:
+#        - name: 'ANSIBLE_COLLECTIONS_PATH'
+#          value: '~/.ansible/collections:/usr/share/ansible/collections:/projects/automation/collections'
+#        - name: 'KUBEDOCK_ENABLED'
+#          value: "true"
+
+
+
+
+schemaVersion: 2.1.0
+metadata:
+  name: build-test
+attributes:
+  controller.devfile.io/scc: container-build
+components:
+- name: devtooling-container
+  container:
+    image: quay.io/devspaces/udi-rhel8:next
+    memoryLimit: 1Gi
+    cpuLimit: 1000m
